@@ -1,0 +1,28 @@
+package rules;
+dialect  "mvel"
+
+import com.denglitong.entity.HelloWorld;
+
+
+global java.util.List helloWorldList;
+
+rule "helloworld"
+    salience 1
+    when
+      m: HelloWorld(status == HelloWorld.HELLO, message: message)
+    then
+      System.out.println("First rule apply: " + message);
+
+    modify(m){
+      message = "Goodbye cruel world",
+      status = HelloWorld.GOODBYE
+    };
+end
+
+rule "Goodbye"
+    salience 2
+    when
+      HelloWorld(status == HelloWorld.GOODBYE, message: message)
+    then
+      System.out.println("Second rule apply: " + message);
+end

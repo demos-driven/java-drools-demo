@@ -1,7 +1,7 @@
 package demo.rules;
 dialect "mvel"
 
-import com.denglitong.simple.Order
+import com.denglitong.entity.Order
 
 rule "zero"
     no-loop true

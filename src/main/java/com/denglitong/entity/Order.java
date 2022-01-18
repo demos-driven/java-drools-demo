@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 2022 Urban Compass, Inc.
  */
-package com.denglitong.simple;
+package com.denglitong.entity;
 
 public class Order {
 

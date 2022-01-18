@@ -1,18 +1,19 @@
 /**
  * Copyright (C) 2022 Urban Compass, Inc.
  */
-package com.denglitong.simple;
+package com.denglitong;
 
 import java.util.Arrays;
 import java.util.List;
 
+import com.denglitong.entity.Order;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
-public class Application {
+public class OrderExample {
 
-  private static final String KSESSION_NAME = "demo_ksession";
+  private static final String ORDER_KSESSION_NAME = "order";
 
   public static void main(String[] args) {
     KieServices ks = KieServices.Factory.get();
@@ -22,7 +23,7 @@ public class Application {
 
   public static void execute(KieContainer kc) {
     // 获取KieSession，KieSession用来执行规则引擎
-    KieSession ksession = kc.newKieSession(KSESSION_NAME);
+    KieSession ksession = kc.newKieSession(ORDER_KSESSION_NAME);
     List<Order> orderList = getInitData();
     for (int i = 0; i < orderList.size(); i++) {
       Order order = orderList.get(i);
